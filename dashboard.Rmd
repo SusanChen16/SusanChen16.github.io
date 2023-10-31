@@ -1,0 +1,62 @@
+---
+title: "Instacart"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+```{r}
+data("instacart")
+instacart_df = 
+  instacart |> 
+  as_tibble()
+```
+
+
+ {data-width=650}
+-----------------------------------------------------------------------
+
+### Scatter plot showing number of items(more than 10000) ordered in each aisle
+
+```{r}
+instacart_df |> 
+  count(aisle) |> 
+  filter(n > 10000) |> 
+  mutate(aisle = fct_reorder(aisle, n), text_label = str_c("Count: ", n)) |> 
+  plot_ly(
+    x = ~aisle, y = ~n, type = "scatter", mode = "markers", text = ~text_label, alpha = 0.5) 
+```
+
+{data-width=350}
+-----------------------------------------------------------------------
+
+### Boxplot showing the order-hour-of-day distribution of aisles in department for frozon food, produce and snacks
+
+```{r}
+instacart_df |> 
+  filter(department %in% c("frozen","produce","deli","snacks"))|>
+  mutate(aisle = fct_reorder(aisle, order_hour_of_day)) |> 
+  plot_ly(y = ~order_hour_of_day, color = ~aisle, type = "box", colors = "viridis")
+```
+
+### Bar plot showing the 5 most popular items in aisles fresh vegetables, fresh fruits, and packaged vegetables fruits
+
+```{r}
+instacart_df |> 
+  filter(aisle %in% c("fresh vegetables", "fresh fruits", "packaged vegetables fruits")) |>
+  group_by(aisle) |>
+  count(product_name) |> 
+  mutate(rank = min_rank(desc(n))) |> 
+  filter(rank < 6) |> 
+  mutate(product_name = fct_reorder(product_name, rank)) |> 
+  plot_ly(x = ~product_name, y = ~n, color = ~product_name, type = "bar", colors = "viridis")
+```
+

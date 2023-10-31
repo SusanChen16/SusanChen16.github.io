@@ -25,5 +25,7 @@ My name is Susan Chen. I am from Shanghai. Click the [link](about.html) if you w
 * [Bo Park](https://www.instagram.com/boparkk/)
 ![](images/Bopark.jpg)
 
-
+# Instacart Dashboard
+* Description of data: it is an anonymized dataset with over 3 million online grocery orders from more than 200,000 Instacart users. 
+Click [here](dashboard.html) for some insteresting plots!
 

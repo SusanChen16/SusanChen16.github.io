@@ -1,12 +1,29 @@
 ---
-title: "My awesome website"
+title: "SusanChen's Website"
 output: 
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
 ---
 
-# This is Susan's awesome website
+# Nice to meet you!
+
+My name is Susan Chen. I am from Shanghai. Click the [link](about.html) if you want to know more about me!
+![](images/Miami.jpg)
+
+# I love DANCING!!!
+* I dance Jazz, Hip-hop, Choreo and heels.
+* Reason why that I am so obsessed with it is that it makes me to become much more confident.
+* Moments on stages also make me satisfied and excited.
+![](images/Dance.jpg)
+
+# My favorite dancers in NYC 
+* [Pauline Casino](https://www.instagram.com/pauline.casino/?hl=en).
+![](images/Pauline.jpg)
+* [Jay Mills](https://www.instagram.com/jaygotthemoves/?hl=en).
+![](images/Jaymills.jpg)
+* [Bo Park](https://www.instagram.com/boparkk/)
+![](images/Bopark.jpg)
+
 
 
